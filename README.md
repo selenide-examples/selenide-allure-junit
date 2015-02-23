@@ -6,4 +6,5 @@
 
 ## To see a report:
 
-* run `mvn jetty:run` and open `http://localhost:8080` in your browser
+1. run `mvn jetty:run`
+2. open `http://localhost:8080` in your browser
