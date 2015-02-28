@@ -1,6 +1,7 @@
 package org.selenide.examples;
 
 import com.codeborne.selenide.Screenshots;
+import com.codeborne.selenide.SelenideElement;
 import com.google.common.io.Files;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -11,6 +12,7 @@ import ru.yandex.qatools.allure.annotations.Attachment;
 import java.io.File;
 import java.io.IOException;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -64,6 +66,23 @@ public class InternetBankTest {
     File statementPdf = $("#btn-export-pdf").download();
     assertTrue(FileUtils.readFileToString(statementPdf).startsWith("%PDF"));
     // verify PDF content
+  }
+
+  @Test
+  public void userCanAssignAliasForAccount() {
+    open("http://idemo.bspb.ru/security/fakeLogin?username=demo&url=/bank/overview");
+    SelenideElement account = $(".account#account-1");
+    
+    account.find("a.alias")
+        .shouldHave(text("40817 810 0 4800 0102279"))
+        .hover();
+    
+    account.find(".icon-edit").should(appear).click();
+    account.find(By.name("alias")).val("Это типа счёт").pressEnter();
+    
+    account.shouldHave(text("Это типа счёт"));
+    
+    account.shouldNotHave(text("40817 810 0 4800 0102279"));
   }
 
   private void openStatement() {
