@@ -2,7 +2,8 @@
 
 ## To run tests and generate Allure report:
 
-* run `mvn clean test site`
+* run `mvn clean test`
+* run `mvn site`
 
 ## To see a report:
 
