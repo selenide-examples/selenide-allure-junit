@@ -58,6 +58,7 @@
           <testFailureIgnore>false</testFailureIgnore>
           <argLine>
             -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.8.6/aspectjweaver-1.8.6.jar
+            -DBUILD_URL=${BUILD_URL}
           </argLine>
           <properties>
             <property>
