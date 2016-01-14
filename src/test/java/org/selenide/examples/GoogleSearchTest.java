@@ -12,7 +12,7 @@ public class GoogleSearchTest {
   public void userCanSearchAnyKeyword() {
     open("http://google.com/en");
     $(By.name("q")).val("selenide").pressEnter();
-    $$("#ires li.g").shouldHave(size(10));
-    $("#ires li.g").shouldHave(text("selenide.org"));
+    $$("#ires .g").shouldHave(size(10));
+    $("#ires .g").shouldHave(text("selenide.org"));
   }
 }
