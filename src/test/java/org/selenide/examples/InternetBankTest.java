@@ -97,7 +97,7 @@ public class InternetBankTest {
 
   @Attachment(type = "image/png")
   public byte[] screenshot() throws IOException {
-    File screenshot = Screenshots.getScreenShotAsFile();
+    File screenshot = Screenshots.getLastScreenshot();
     return Files.toByteArray(screenshot);
   }
 }
