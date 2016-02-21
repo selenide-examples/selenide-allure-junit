@@ -14,7 +14,7 @@
   <version>1.0</version>
   
   <properties>
-    <allure.version>1.4.20</allure.version>
+    <allure.version>1.4.22</allure.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -30,7 +30,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>3.1</version>
+      <version>3.3</version>
     </dependency>
   </dependencies>
 
