@@ -1,8 +1,10 @@
 package org.selenide.examples;
 
+import com.codeborne.pdftest.PDF;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.xlstest.XLS;
 import com.google.common.io.Files;
 import org.junit.After;
 import org.junit.Before;
@@ -23,9 +25,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.open;
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.apache.commons.io.FileUtils.readFileToString;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertThat;
 
 public class InternetBankTest {
   @BeforeClass
@@ -84,9 +84,30 @@ public class InternetBankTest {
   public void userCanDownloadStatementAsPdf() throws IOException {
     openStatement();
     $("#statement-export").click();
+
     File statementPdf = $("#btn-export-pdf").download();
-    assertTrue(readFileToString(statementPdf, UTF_8).startsWith("%PDF"));
-    // TODO verify PDF content
+
+    PDF pdf = new PDF(statementPdf);
+    assertThat(pdf, PDF.containsText("ПАО \"БАНК \"САНКТ-ПЕТЕРБУРГ\""));
+    assertThat(pdf, PDF.containsText("BIC 044030790"));
+    assertThat(pdf, PDF.containsText("Королёва Ольга"));
+    assertThat(pdf, PDF.containsText("Statement Period:"));
+  }
+
+  @Test
+  public void userCanDownloadStatementAsExcel() throws IOException {
+    openStatement();
+    $("#statement-export").click();
+
+    File statementExcel = $("#btn-export-xls").download();
+
+    XLS xls = new XLS(statementExcel);
+    assertThat(xls, XLS.containsText("Королёва Ольга"));
+    assertThat(xls, XLS.containsText("40817810048000102279"));
+    assertThat(xls, XLS.containsText("Closing balance"));
+    assertThat(xls, XLS.containsText("Credit turnover"));
+    assertThat(xls, XLS.containsText("Debit turnover"));
+    assertThat(xls, XLS.containsText("Reserved"));
   }
 
   @Test

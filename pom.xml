@@ -33,6 +33,16 @@
       <artifactId>selenide</artifactId>
       <version>5.2.6</version>
     </dependency>
+    <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>pdf-test</artifactId>
+      <version>1.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>xls-test</artifactId>
+      <version>1.4.1</version>
+    </dependency>
   </dependencies>
 
   <build>
