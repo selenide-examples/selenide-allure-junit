@@ -27,7 +27,7 @@ import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertThat;
 
-public class InternetBankTest {
+public class InternetBankTest_ {
   @BeforeClass
   public static void setUp() {
     close();

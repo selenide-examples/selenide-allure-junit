@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class GoogleSearchTest {
+public class GoogleSearchTest_ {
   @Test
   public void userCanSearchAnyKeyword() {
     open("https://google.com/ncr");
