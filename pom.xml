@@ -12,7 +12,7 @@
   <groupId>org.selenide.examples</groupId>
   <artifactId>selenide-allure-junit</artifactId>
   <version>2.0</version>
-  
+
   <properties>
     <allure.version>1.5.4</allure.version>
     <aspectj.version>1.9.4</aspectj.version>
@@ -92,6 +92,7 @@
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.4.21.v20190926</version>
         <configuration>
+          <supportedPackagings>jar</supportedPackagings>
           <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
         </configuration>
       </plugin>
