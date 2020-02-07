@@ -2,13 +2,12 @@ package org.selenide.examples.pages;
 
 import org.junit.Test;
 import pages.app.GoogleResultsPage;
+import tests.BaseTests;
 
-import static com.codeborne.selenide.Selenide.open;
-
-public class PagesTest {
+public class PagesTest extends BaseTests {
 
     @Test
-    public void absoluteUrlIsCorrectkyBuilt() {
+    public void absoluteUrlIsCorrectlyBuilt() {
         assert GoogleResultsPage.getAbsoluteUrl().contains(GoogleResultsPage.getURL());
     }
 }
