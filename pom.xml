@@ -88,6 +88,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>
+                    </systemPropertyVariables>
                     <forkCount>2</forkCount>
                     <parallel>suites</parallel>
                     <threadCount>2</threadCount>
@@ -130,6 +133,7 @@
                     <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
@@ -140,8 +144,10 @@
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
                 <version>2.6</version>
+
             </plugin>
         </plugins>
+
     </reporting>
 
 </project>
