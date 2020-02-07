@@ -29,6 +29,19 @@
             <artifactId>allure-environment-writer</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!-- for attaching screenshots -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>2.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- screenshots do not resolve this deps so we add it explicitely -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>LATEST</version>
+        </dependency>
 
         <dependency>
             <groupId>ru.yandex.qatools.allure</groupId>
