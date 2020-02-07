@@ -1,0 +1,1 @@
+start chrome https://www.swtestacademy.com/selenium-parallel-tests-grid-junit/
