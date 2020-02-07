@@ -5,7 +5,6 @@ import com.codeborne.selenide.junit.ScreenShooter;
 import com.google.common.collect.ImmutableMap;
 import configuration.EnvironmentPropertiesLoader;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 import ru.yandex.qatools.allure.annotations.Attachment;
@@ -36,11 +35,15 @@ public class BaseTests {
     }
 
     private static void setAllureEnvironment() {
+
         allureEnvironmentWriter(
                 ImmutableMap.<String, String>builder()
                         .put("Browser", Configuration.browser)
                         .put("URL", EnvironmentPropertiesLoader.getProps().getProperty("BASE_URL"))
-                        .build());
+                        .put("Suite", EnvironmentPropertiesLoader.getProps().getProperty("test", "All Tests"))
+                        .build()
+        );
+
     }
 
     private static void setSelenideConfiguration() {
@@ -60,7 +63,7 @@ public class BaseTests {
         } catch (IOException e) {
             log.log(Level.INFO, e.getStackTrace().toString());
         }
-        return  null;
+        return null;
     }
 
     @After
