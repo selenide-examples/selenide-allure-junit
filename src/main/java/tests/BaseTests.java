@@ -70,12 +70,6 @@ public class BaseTests {
 
     @Attachment(type = "image/png")
     public byte[] attachScreenshot() throws IOException {
-
         return saveScreenshotOnDiskAndReturn();
-    }
-
-    @AfterClass
-    public static void closeBrowser() {
-        //close();
     }
 }
