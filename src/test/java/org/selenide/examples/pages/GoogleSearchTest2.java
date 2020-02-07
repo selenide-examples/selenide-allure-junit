@@ -11,6 +11,6 @@ public class GoogleSearchTest2 extends BaseTests {
     @Test
     public void userCanSearchAnyKeywordAndResultsPageIsReturned2() {
         GoogleSearchPage googleSearchPage = open(GoogleSearchPage.getAbsoluteUrl(), GoogleSearchPage.class);
-        GoogleResultsPage googleResultsPage = googleSearchPage.search("dupa");
+        GoogleResultsPage googleResultsPage = googleSearchPage.search("Uncommon phrase");
     }
 }

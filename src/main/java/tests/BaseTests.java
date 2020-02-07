@@ -35,7 +35,6 @@ public class BaseTests {
     }
 
     private static void setAllureEnvironment() {
-
         allureEnvironmentWriter(
                 ImmutableMap.<String, String>builder()
                         .put("Browser", Configuration.browser)
