@@ -18,16 +18,33 @@ node() {
 				"""
         }
     }
-    stage('Allure Reports') {
+    stage('Site Reports') {
         withMaven(maven: 'maven35') {
             sh """
 					cd ${env.WORKSPACE_LOCAL}
 					mvn site
 				"""
-            allure includeProperties: false, jdk: '', report: "${env.WORKSPACE_LOCAL}/target/site/allure-report", results: [[path: "${env.WORKSPACE_LOCAL}/target/allure-results"]]
+        }
+    }
+    stage('Site Reports') {
+        withMaven(maven: 'maven35') {
+            sh """
+					cd ${env.WORKSPACE_LOCAL}/target && pwd
+				"""
+            allure includeProperties: false, jdk: '', report: "${env.WORKSPACE_LOCAL}/target/site/allure-report", results: [[path: "allure-results"]]
 
         }
     }
+    stage('Site Reports') {
+        withMaven(maven: 'maven35') {
+            sh """
+					cd ${env.WORKSPACE_LOCAL}/target/allure-results && pwd
+				"""
+            allure includeProperties: false, jdk: '', report: "site/allure-report", results: [[path: "allure-results"]]
+
+        }
+    }
+
     stage('Expose reports') {
         archiveArtifacts "**/allure.zip"
         archiveArtifacts '**/allure-results'
