@@ -40,7 +40,7 @@ node() {
             sh """
 					cd ${env.WORKSPACE_LOCAL}/target/allure-results && pwd
 				"""
-            allure includeProperties: false, jdk: '', report: "site/allure-report", results: [[path: "allure-results"]]
+            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
 
         }
     }
