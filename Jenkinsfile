@@ -24,14 +24,14 @@ node() {
 					cd ${env.WORKSPACE_LOCAL}
 					mvn site
 				"""
-            allure includeProperties: true, jdk: '', report: "${env.APP_WORKSPACE}target/site/allure-report", results: [[path: "${env.APP_WORKSPACE}target/allure-results"]]
+            allure includeProperties: false, jdk: '', report: "${env.WORKSPACE_LOCAL}/target/site/allure-report", results: [[path: "${env.WORKSPACE_LOCAL}/target/allure-results"]]
 
         }
     }
     stage('Expose reports') {
-        archive "**/allure.zip"
-        archive '**/allure-results'
-        archive '**/allure-report'
-        archive '**/site'
+        archiveArtifacts "**/allure.zip"
+        archiveArtifacts '**/allure-results'
+        archiveArtifacts '**/allure-report'
+        archiveArtifacts '**/site'
     }
 }
