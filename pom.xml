@@ -88,9 +88,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-                    <systemPropertyVariables>
-                        <allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>
-                    </systemPropertyVariables>
                     <forkCount>2</forkCount>
                     <parallel>suites</parallel>
                     <threadCount>2</threadCount>
@@ -133,7 +130,30 @@
                     <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
                 </configuration>
             </plugin>
-
+            <!-- allure 1.6 requires properties in target/allure-results before generation-->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/allure-results</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/test/resources/allure</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

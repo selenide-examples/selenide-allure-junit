@@ -17,10 +17,10 @@ public class GoogleSearchTest extends BaseTests {
     @Test
     @Features("A")
     @Stories({"A"})
-    @Issue("D")
-    @Step("LO")
+    @Issue("JIRA-67")
     public void userCanSearchAnyKeywordAndResultsPageIsReturned() {
         GoogleSearchPage googleSearchPage = open(GoogleSearchPage.getAbsoluteUrl(), GoogleSearchPage.class);
         GoogleResultsPage googleResultsPage = googleSearchPage.search("common phrase");
+        assert false;
     }
 }
