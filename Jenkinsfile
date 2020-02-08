@@ -26,20 +26,8 @@ node() {
 				"""
         }
     }
-    stage('Site Reports') {
+    stage('Allure Reports') {
         withMaven(maven: 'maven35') {
-            sh """
-					cd ${env.WORKSPACE_LOCAL}/target && pwd
-				"""
-            allure includeProperties: false, jdk: '', report: "${env.WORKSPACE_LOCAL}/target/site/allure-report", results: [[path: "allure-results"]]
-
-        }
-    }
-    stage('Site Reports') {
-        withMaven(maven: 'maven35') {
-            sh """
-					cd ${env.WORKSPACE_LOCAL}/target/allure-results && pwd
-				"""
             allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
 
         }
