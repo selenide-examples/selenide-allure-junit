@@ -14,7 +14,7 @@ node() {
         withMaven(maven: 'maven35') {
             sh """
 					cd ${env.WORKSPACE_LOCAL}
-					mvn clean test
+					mvn clean test -Dselenide.remote=http://192.168.99.1:4444/wd/hub
 				"""
         }
     }
