@@ -10,7 +10,7 @@ node() {
         echo "Workspace set to:" + env.WORKSPACE_LOCAL
     }
     stage('Checkout') {
-        git branch: ${branch}, credentialsId: '', url: repoURL
+        git branch: branch, credentialsId: '', url: repoURL
     }
     stage('Execute Tests') {
         withMaven(maven: 'maven35') {
