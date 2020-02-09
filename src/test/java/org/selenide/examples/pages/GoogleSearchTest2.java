@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class GoogleSearchTest2_ extends BaseTests {
+public class GoogleSearchTest2 extends BaseTests {
     @Test
     public void userCanSearchAnyKeywordAndResultsPageIsReturned2() {
         GoogleSearchPage googleSearchPage = open(GoogleSearchPage.getAbsoluteUrl(), GoogleSearchPage.class);

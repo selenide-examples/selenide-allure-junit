@@ -13,7 +13,7 @@ import tests.BaseTests;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class GoogleSearchTest_ extends BaseTests {
+public class GoogleSearchTest extends BaseTests {
     @Test
     @Features("A")
     @Stories({"A"})

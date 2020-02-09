@@ -1,6 +1,8 @@
 node() {
 
     def repoURL = 'https://github.com/gabrielstar/selenide-allure-junit.git'
+    def gridURL = 'http://192.168.99.1:4444/wd/hub'
+    def branch = 'feature/allure_configuration'
 
     stage("Prepare Workspace") {
         cleanWs()
@@ -8,13 +10,13 @@ node() {
         echo "Workspace set to:" + env.WORKSPACE_LOCAL
     }
     stage('Checkout') {
-        git branch: 'feature/allure_configuration', credentialsId: '', url: repoURL
+        git branch: ${branch}, credentialsId: '', url: repoURL
     }
     stage('Execute Tests') {
         withMaven(maven: 'maven35') {
             sh """
 					cd ${env.WORKSPACE_LOCAL}
-					mvn clean test -Dselenide.remote=http://192.168.99.1:4444/wd/hub
+					mvn clean test -Dselenide.remote=${gridURL}
 				"""
         }
     }
