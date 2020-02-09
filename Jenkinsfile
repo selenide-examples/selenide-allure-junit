@@ -16,7 +16,7 @@ node() {
         withMaven(maven: 'maven35') {
             sh """
 					cd ${env.WORKSPACE_LOCAL}
-					mvn clean test -Dselenide.remote=${gridURL}
+					mvn clean test -Dtest=AllSuite,SubSuite -Dselenide.remote=${gridURL}
 				"""
         }
     }
@@ -35,7 +35,4 @@ node() {
         }
     }
 
-    stage('Expose reports') {
-        archiveArtifacts '**/allure-report.zip'
-    }
 }
