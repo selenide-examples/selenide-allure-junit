@@ -70,7 +70,7 @@ public class BaseTests {
         attachScreenshot();
     }
 
-    @Attachment(type = "image/png")
+    @Attachment(type = "image/png", value="lastPageScreenshot")
     public byte[] attachScreenshot() throws IOException {
         return saveScreenshotOnDiskAndReturn();
     }

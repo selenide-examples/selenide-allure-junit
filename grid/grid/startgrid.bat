@@ -20,5 +20,6 @@ FOR /L %%A IN (1,1,%nodes_number%) DO (
   START /B CMD /C CALL "startnode.bat" 
 )
 
+
 ECHO Waiting for hub and nodes to start
 start chrome http://localhost:4444/grid/console

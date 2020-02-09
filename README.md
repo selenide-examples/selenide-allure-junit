@@ -1,9 +1,14 @@
-# Selenide + Allure + JUnit example
+# Selenide basic example with following integrations working out of the box:
+- Allure 1.5
+- Parallel tests execution with JUNIT JVM Fork
+- Jenkins integration via Jenkinsfile pipeline script
+- Local grid supplied in /grid directory
+- Example runners in prokect root eg. /run_parallel.bat
 
 ## To run tests and generate Allure report:
 
-* run `mvn clean test`
-* run `mvn site`
+* run `mvn clean test` or use maven wrapper `mvnw clean test`
+* run `mvn site` or use maven wrapper `mvnw clean test`
 
 ## To see a report:
 
