@@ -36,9 +36,6 @@ node() {
     }
 
     stage('Expose reports') {
-        archiveArtifacts "**/allure.zip"
-        archiveArtifacts '**/allure-results'
-        archiveArtifacts '**/allure-report'
-        archiveArtifacts '**/site'
+        archiveArtifacts '**/allure-report.zip'
     }
 }
