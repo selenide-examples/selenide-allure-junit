@@ -1,9 +1,9 @@
-package tests;
+package org.selenide.examples.config.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.ScreenShooter;
 import com.google.common.collect.ImmutableMap;
-import configuration.EnvironmentPropertiesLoader;
+import org.selenide.examples.config.configuration.EnvironmentPropertiesLoader;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.rules.TestName;

@@ -1,4 +1,4 @@
-package repositories;
+package org.selenide.examples.config.repositories;
 
 public enum ESelectors {
     SELECTOR_NAME_Q("q");

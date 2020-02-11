@@ -1,4 +1,4 @@
-package configuration;
+package org.selenide.examples.config.configuration;
 
 public enum EPropertiesKeys {
     BASE_URL("BASE_URL"),

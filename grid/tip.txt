@@ -1,1 +1,0 @@
-this is local grid used for testing, do not use in production, instead use grid of docker or selenoid

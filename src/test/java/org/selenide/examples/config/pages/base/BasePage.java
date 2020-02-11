@@ -1,7 +1,7 @@
-package pages.base;
+package org.selenide.examples.config.pages.base;
 
-import configuration.EPropertiesKeys;
-import configuration.EnvironmentPropertiesLoader;
+import org.selenide.examples.config.configuration.EPropertiesKeys;
+import org.selenide.examples.config.configuration.EnvironmentPropertiesLoader;
 
 import java.util.Properties;
 

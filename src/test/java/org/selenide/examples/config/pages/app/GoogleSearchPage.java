@@ -1,8 +1,8 @@
-package pages.app;
+package org.selenide.examples.config.pages.app;
 
 import org.openqa.selenium.By;
-import pages.base.BasePage;
-import repositories.ESelectors;
+import org.selenide.examples.config.pages.base.BasePage;
+import org.selenide.examples.config.repositories.ESelectors;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;

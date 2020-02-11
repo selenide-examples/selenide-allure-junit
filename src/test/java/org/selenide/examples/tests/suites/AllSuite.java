@@ -1,9 +1,9 @@
-package org.selenide.examples.suites;
+package org.selenide.examples.tests.suites;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import org.selenide.examples.pages.GoogleSearchTest;
-import org.selenide.examples.pages.PagesTest;
+import org.selenide.examples.tests.pages.GoogleSearchTest;
+import org.selenide.examples.tests.pages.PagesTest;
 
 @RunWith(Suite.class)
 

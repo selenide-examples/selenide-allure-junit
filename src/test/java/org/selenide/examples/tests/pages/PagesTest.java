@@ -1,8 +1,7 @@
-package org.selenide.examples.pages;
+package org.selenide.examples.tests.pages;
 
 import org.junit.Test;
-import pages.app.GoogleResultsPage;
-import tests.BaseTests;
+import org.selenide.examples.config.pages.app.GoogleResultsPage;
 
 public class PagesTest {
     @Test

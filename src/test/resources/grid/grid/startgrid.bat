@@ -1,3 +1,4 @@
+::Author Gabriel Starczewski https://github.com/gabrielstar
 ECHO this script runs selenium grid given the paths to drivers are properly set
 ECHO you can specify number of selenium grid nodes
 

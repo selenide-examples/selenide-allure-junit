@@ -1,4 +1,4 @@
-package configuration;
+package org.selenide.examples.config.configuration;
 
 import java.io.FileInputStream;
 import java.io.IOException;

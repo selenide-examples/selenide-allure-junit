@@ -1,7 +1,7 @@
-package pages.app;
+package org.selenide.examples.config.pages.app;
 
 import com.codeborne.selenide.ElementsCollection;
-import pages.base.BasePage;
+import org.selenide.examples.config.pages.base.BasePage;
 
 import static com.codeborne.selenide.Selenide.$$;
 

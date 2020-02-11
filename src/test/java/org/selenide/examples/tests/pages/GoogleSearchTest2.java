@@ -1,9 +1,9 @@
-package org.selenide.examples.pages;
+package org.selenide.examples.tests.pages;
 
 import org.junit.Test;
-import pages.app.GoogleResultsPage;
-import pages.app.GoogleSearchPage;
-import tests.BaseTests;
+import org.selenide.examples.config.pages.app.GoogleResultsPage;
+import org.selenide.examples.config.pages.app.GoogleSearchPage;
+import org.selenide.examples.config.tests.BaseTests;
 
 import java.io.FileNotFoundException;
 
