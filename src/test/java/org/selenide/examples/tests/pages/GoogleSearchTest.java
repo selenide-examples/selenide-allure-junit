@@ -9,14 +9,15 @@ import ru.yandex.qatools.allure.annotations.Issue;
 import ru.yandex.qatools.allure.annotations.Stories;
 
 public class GoogleSearchTest extends BaseTests {
+    GoogleSearchPage googleSearchPage = new GoogleSearchPage();
+    GoogleResultsPage googleResultsPage = new GoogleResultsPage();
 
     @Test
     @Features("Searches for common phrases")
     @Stories({"Google Basic Searches"})
     @Issue("JIRA-67")
     public void userCanSearchAnyKeywordAndResultsPageIsReturned() {
-        GoogleSearchPage googleSearchPage = new GoogleSearchPage();
         googleSearchPage.open();
-        GoogleResultsPage googleResultsPage = googleSearchPage.search("common phrase");
+        googleResultsPage = googleSearchPage.search("common phrase");
     }
 }

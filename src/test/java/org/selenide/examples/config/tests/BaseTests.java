@@ -38,8 +38,8 @@ public class BaseTests {
         allureEnvironmentWriter(
                 ImmutableMap.<String, String>builder()
                         .put("Browser", Configuration.browser)
-                        .put("Base URL:", getEnvProps().getProperty("base.url","http://selenide.org"))
-                        .put("Tests:", getEnvProps().getProperty("test", "All tests have been run"))
+                        .put("Base URL:", getEnvProps().getProperty("base.url"))
+                        .put("Tests:", System.getProperty("test", "All tests have been run"))
                         .build()
         );
 
@@ -48,7 +48,7 @@ public class BaseTests {
     private static void setSelenideConfiguration() {
         Configuration.screenshots = true;
         Configuration.savePageSource = false;
-        Configuration.reportsFolder = "target/allure-results"; //write screenshot to allure with prettyName
+        Configuration.reportsFolder = "target" + System.getProperty("file.separator") + "allure-results"; //write screenshot to allure with prettyName
     }
 
 
@@ -60,7 +60,7 @@ public class BaseTests {
             return Files.readAllBytes(content);
 
         } catch (IOException e) {
-            log.log(Level.INFO, e.getStackTrace().toString());
+            log.log(Level.INFO, "Cannot take screenshot: " + e.getStackTrace().toString());
         }
         return null;
     }

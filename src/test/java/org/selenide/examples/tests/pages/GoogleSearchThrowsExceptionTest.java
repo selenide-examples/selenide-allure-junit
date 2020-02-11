@@ -9,11 +9,12 @@ import java.io.FileNotFoundException;
 
 public class GoogleSearchThrowsExceptionTest extends BaseTests {
     GoogleSearchPage googleSearchPage = new GoogleSearchPage();
+    GoogleResultsPage googleResultsPage = new GoogleResultsPage();
 
     @Test
     public void userCanSearchAnyKeywordThenResultsPageIsReturnedThenExceptionThrown() throws FileNotFoundException {
         googleSearchPage.open();
-        GoogleResultsPage googleResultsPage = googleSearchPage.search("Uncommon phrase");
+        googleResultsPage = googleSearchPage.search("Uncommon phrase");
         throw new FileNotFoundException();
 
     }
