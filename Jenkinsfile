@@ -1,7 +1,7 @@
 node() {
 
     def repoURL = 'https://github.com/gabrielstar/selenide-allure-junit.git'
-    def gridURL = 'http://192.168.99.1:4444/wd/hub'
+    def gridURL = 'http://192.168.56.1:4444/wd/hub'
     //def gridURL = 'http://10.2.1.56:4444/wd/hub'
     def branch = 'feature/cleaning'
 
