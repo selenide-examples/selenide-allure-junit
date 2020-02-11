@@ -2,13 +2,13 @@ package org.selenide.examples.tests.suites;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import org.selenide.examples.tests.pages.GoogleSearchTest2;
+import org.selenide.examples.tests.pages.GoogleSearchThrowsExceptionTest;
 
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-        GoogleSearchTest2.class
+        GoogleSearchThrowsExceptionTest.class
 })
 
-public class SubSuite {
+public class SmokeTestsSuite {
 }

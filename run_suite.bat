@@ -1,1 +1,1 @@
-mvnw clean test -Dtest=AllSuite
+mvnw clean test -Dtest=RegressionTestsSuite

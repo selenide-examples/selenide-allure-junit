@@ -17,7 +17,7 @@ public class EnvironmentPropertiesLoader {
     }
 
     private static Properties loadProps() {
-        String env = System.getProperty(EPropertiesKeys.ENV.getKey().toLowerCase(), EPropertiesKeys.DEFAULT_ENV.getKey());
+        String env = System.getProperty(EPropertiesKeys.ENV.getKey(), EPropertiesKeys.DEFAULT_ENV.getKey());
         String envPropertiesFile = (env + EPropertiesKeys.ENV_FILENAME_SUFFIX.getKey()).toLowerCase();
         try {
             String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();

@@ -1,1 +1,1 @@
-mvnw clean test -Dtest=AllSuite,SubSuite -Dselenide.remote=http://localhost:4444/wd/hub
+mvnw clean test -Dthreads=3 -Dtest=RegressionTestsSuite,SmokeTestsSuite -Dselenide.remote=http://localhost:4444/wd/hub

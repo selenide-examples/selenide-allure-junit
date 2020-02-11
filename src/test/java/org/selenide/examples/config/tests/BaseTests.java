@@ -38,8 +38,8 @@ public class BaseTests {
         allureEnvironmentWriter(
                 ImmutableMap.<String, String>builder()
                         .put("Browser", Configuration.browser)
-                        .put("URL", EnvironmentPropertiesLoader.getProps().getProperty("BASE_URL"))
-                        .put("Suite", EnvironmentPropertiesLoader.getProps().getProperty("test", "All Tests"))
+                        .put("Base URL:", EnvironmentPropertiesLoader.getProps().getProperty("base.url",""))
+                        .put("Tests:", EnvironmentPropertiesLoader.getProps().getProperty("test", "All tests have been run"))
                         .build()
         );
 
