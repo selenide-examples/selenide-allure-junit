@@ -12,24 +12,25 @@ public class EnvironmentPropertiesLoader {
         props = loadProps();
     }
 
-    public static Properties getProps() {
+    public static Properties getEnvProps() {
         return props;
     }
 
     private static Properties loadProps() {
+
         String env = System.getProperty(EPropertiesKeys.ENV.getKey(), EPropertiesKeys.DEFAULT_ENV.getKey());
         String envPropertiesFile = (env + EPropertiesKeys.ENV_FILENAME_SUFFIX.getKey()).toLowerCase();
         try {
             String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-            Properties props = new Properties();
-            props.load(new FileInputStream(rootPath + envPropertiesFile));
-            return props;
-
+            Properties properties = new Properties();
+            properties.load(new FileInputStream(rootPath + envPropertiesFile));
+            return properties;
         } catch (IOException ioe) {
             for (StackTraceElement ste : ioe.getStackTrace()) {
-                System.out.println(ste.toString());
+                System.out.println("Failed to load properties due to:" + ste.toString());
             }
+            return new Properties();
         }
-        return null;
+
     }
 }

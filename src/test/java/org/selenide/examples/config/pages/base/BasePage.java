@@ -1,39 +1,60 @@
 package org.selenide.examples.config.pages.base;
 
+import com.codeborne.selenide.Selenide;
 import org.selenide.examples.config.configuration.EPropertiesKeys;
-import org.selenide.examples.config.configuration.EnvironmentPropertiesLoader;
 
-import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class BasePage implements IPage {
-    private static String URL = "/";
-    public static Properties environmentProperties;
-    private static String BASE_URL;
+import static org.selenide.examples.config.configuration.EnvironmentPropertiesLoader.getEnvProps;
 
-    static {
-        environmentProperties = EnvironmentPropertiesLoader.getProps();
-        BASE_URL = environmentProperties.getProperty(EPropertiesKeys.BASE_URL.getKey(), EPropertiesKeys.KEY_NOT_DEFINED.getKey());
-        URL = "/";
+public class BasePage implements IBasePage {
+    protected String URL = "/";
+    protected String BASE_URL;
+    private static Logger log = Logger.getLogger(BasePage.class.getName());
+
+    public BasePage() {
+        this("/");
     }
 
-    public static String getBaseUrl() {
-        return BASE_URL;
+    public BasePage(String url) {
+        this(url, getEnvProps().getProperty(EPropertiesKeys.BASE_URL.getKey()));
     }
 
-    public static String getAbsoluteUrl() {
-        return BASE_URL + URL;
+    public BasePage(String URL, String BASE_URL) {
+        this.URL = URL;
+        this.BASE_URL = BASE_URL;
     }
 
-    private static void setBaseUrl(String baseUrl) {
-        BASE_URL = baseUrl;
+
+    @Override
+    public void setBaseUrl(String baseUrl) {
+        this.BASE_URL = baseUrl;
     }
 
-    public static String getURL() {
-        return URL;
+    @Override
+    public String getBaseUrl() {
+        return this.BASE_URL;
     }
 
-    public static void setURL(String url) {
-        URL = url;
+    @Override
+    public String getAbsoluteUrl() {
+        return this.BASE_URL + this.URL;
     }
 
+    @Override
+    public String getURL() {
+        return this.URL;
+    }
+
+    @Override
+    public void setURL(String url) {
+        this.URL = url;
+    }
+
+    @Override
+    public void open() {
+        log.log(Level.INFO, "Accessing :" + this.getClass().getSimpleName() + " @ URL: " + getAbsoluteUrl());
+        Selenide.open(this.getAbsoluteUrl());
+    }
 }

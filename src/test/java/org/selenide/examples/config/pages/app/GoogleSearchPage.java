@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class GoogleSearchPage extends BasePage {
     public GoogleSearchPage() {
-        setURL("/login");
+        super("/");
     }
 
     public GoogleResultsPage search(String query) {

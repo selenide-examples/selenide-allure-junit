@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class GoogleResultsPage extends BasePage {
     public GoogleResultsPage() {
-        setURL("/results");
+        super("/results");
     }
 
     public ElementsCollection getResults() {
