@@ -31,7 +31,7 @@ node() {
     }
     stage('Allure Reports') {
         withMaven(maven: 'maven35') {
-            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
+            allure includeProperties: true, jdk: '', results: [[path: 'target/allure-results']]
 
         }
     }

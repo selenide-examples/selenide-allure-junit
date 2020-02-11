@@ -16,6 +16,5 @@ public class GoogleSearchThrowsExceptionTest extends BaseTests {
         googleSearchPage.open();
         googleResultsPage = googleSearchPage.search("Uncommon phrase");
         throw new FileNotFoundException();
-
     }
 }

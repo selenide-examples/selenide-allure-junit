@@ -19,5 +19,6 @@ public class GoogleSearchTest extends BaseTests {
     public void userCanSearchAnyKeywordAndResultsPageIsReturned() {
         googleSearchPage.open();
         googleResultsPage = googleSearchPage.search("common phrase");
+        assert true;
     }
 }
