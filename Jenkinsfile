@@ -17,7 +17,7 @@ node() {
         withMaven(maven: 'maven35') {
             sh """
 					cd ${env.WORKSPACE_LOCAL}
-					mvn clean test -Dtest=AllSuite,SubSuite -Dselenide.remote=${gridURL}
+					mvn clean test -Dtest=RegressionTestSuite -Dselenide.remote=${gridURL}
 				"""
         }
     }
