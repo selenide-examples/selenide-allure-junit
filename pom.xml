@@ -14,6 +14,7 @@
     <version>2.0</version>
 
     <properties>
+        <!-- dependencies properties -->
         <allure.version>1.5.4</allure.version>
         <aspectj.version>1.9.4</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,8 +22,8 @@
         <threads>1</threads>
     </properties>
 
-    <name>Selenide + Allure + JUnit Example</name>
-    <description>Example usage of Selenide withAllure and JUnit</description>
+    <name>Selenide5 + Allur1e + JUnit4 Example</name>
+    <description>Selenide based test project with Allure1, Junit4, Pretty Parametrized Tests, Parallel Execution on Grid, Environment Based properties, KISS POMS</description>
 
     <dependencies>
         <!-- Easy parametrized tests for junit-->
