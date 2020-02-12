@@ -1,1 +1,1 @@
-mvnw clean test -Dtest=AllSuite,SubSuite
+mvnw clean test -Dthreads=2 -Dtest=RegressionTestsSuite,SmokeTestsSuite

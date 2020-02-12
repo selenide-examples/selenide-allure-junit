@@ -1,9 +1,9 @@
 node() {
 
     def repoURL = 'https://github.com/gabrielstar/selenide-allure-junit.git'
-    //def gridURL = 'http://192.168.99.1:4444/wd/hub'
-    def gridURL = 'http://10.2.1.56:4444/wd/hub'
-    def branch = 'master'
+    def gridURL = 'http://192.168.56.1:4444/wd/hub'
+    //def gridURL = 'http://10.2.1.56:4444/wd/hub'
+    def branch = 'feature/cleaning'
 
     stage("Prepare Workspace") {
         cleanWs()
@@ -17,7 +17,7 @@ node() {
         withMaven(maven: 'maven35') {
             sh """
 					cd ${env.WORKSPACE_LOCAL}
-					mvn clean test -Dtest=AllSuite,SubSuite -Dselenide.remote=${gridURL}
+					mvn clean test -Dthreads=2 -Dtest=RegressionTestsSuite,SmokeTestsSuite -Dselenide.remote=${gridURL}
 				"""
         }
     }
@@ -31,7 +31,7 @@ node() {
     }
     stage('Allure Reports') {
         withMaven(maven: 'maven35') {
-            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
+            allure includeProperties: true, jdk: '', results: [[path: 'target/allure-results']]
 
         }
     }
