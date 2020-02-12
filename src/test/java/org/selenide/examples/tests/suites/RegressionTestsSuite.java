@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.selenide.examples.tests.pages.GoogleSearchAssertFailsTest;
 import org.selenide.examples.tests.pages.GoogleSearchTestParametrized;
+import org.selenide.examples.tests.pages.GoogleSearchTestParametrizedCSV;
 import org.selenide.examples.tests.pages.PagesTest;
 
 @RunWith(Suite.class)
@@ -11,8 +12,7 @@ import org.selenide.examples.tests.pages.PagesTest;
 @Suite.SuiteClasses({
         GoogleSearchTestParametrized.class,
         GoogleSearchAssertFailsTest.class,
-        PagesTest.class,
-
+        GoogleSearchTestParametrizedCSV.class
 })
 
 public class RegressionTestsSuite {

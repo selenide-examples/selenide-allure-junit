@@ -25,6 +25,13 @@
     <description>Example usage of Selenide withAllure and JUnit</description>
 
     <dependencies>
+        <!-- Easy parametrized tests for junit-->
+        <dependency>
+            <groupId>pl.pragmatists</groupId>
+            <artifactId>JUnitParams</artifactId>
+            <version>1.1.1</version>
+            <scope>test</scope>
+        </dependency>
         <!-- Allure plugin for adjusting allure main page -->
         <dependency>
             <groupId>com.github.automatedowl</groupId>

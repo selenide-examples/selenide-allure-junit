@@ -1,1 +1,1 @@
-mvnw clean test -Dthreads=3 -Dtest=RegressionTestsSuite,SmokeTestsSuite
+mvnw clean test -Dthreads=2 -Dtest=RegressionTestsSuite,SmokeTestsSuite
