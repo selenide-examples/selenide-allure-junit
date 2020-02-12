@@ -13,10 +13,6 @@ public class BasePage implements IBasePage {
     protected String BASE_URL;
     private static Logger log = Logger.getLogger(BasePage.class.getName());
 
-    public BasePage() {
-        this("/");
-    }
-
     public BasePage(String url) {
         this(url, getEnvProps().getProperty(EPropertiesKeys.BASE_URL.getKey()));
     }
@@ -53,8 +49,9 @@ public class BasePage implements IBasePage {
     }
 
     @Override
-    public void open() {
+    public BasePage open() {
         log.log(Level.INFO, "Accessing :" + this.getClass().getSimpleName() + " @ URL: " + getAbsoluteUrl());
         Selenide.open(this.getAbsoluteUrl());
+        return this;
     }
 }

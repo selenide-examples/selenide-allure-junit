@@ -27,7 +27,9 @@ public class BaseTests {
     public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();
     @Rule
     public TestName name = new TestName();
-    private static Logger log = Logger.getLogger("BaseTests");
+    private static final String BASE_LOGGER_NAME = "Base Tests";
+    private static Logger log = Logger.getLogger(BASE_LOGGER_NAME);
+    private static final String REPORT_DIR = "target" + System.getProperty("file.separator") + "allure-results";//move to properties one day
 
     static {
         setAllureEnvironment();
@@ -38,7 +40,7 @@ public class BaseTests {
         allureEnvironmentWriter(
                 ImmutableMap.<String, String>builder()
                         .put("Browser", Configuration.browser)
-                        .put("Base URL:", getEnvProps().getProperty("base.url"))
+                        .put("Base URL:", getEnvProps().getProperty("base.url", "unknown URL"))
                         .put("Tests:", System.getProperty("test", "All tests have been run"))
                         .build()
         );
@@ -48,14 +50,19 @@ public class BaseTests {
     private static void setSelenideConfiguration() {
         Configuration.screenshots = true;
         Configuration.savePageSource = false;
-        Configuration.reportsFolder = "target" + System.getProperty("file.separator") + "allure-results"; //write screenshot to allure with prettyName
+        Configuration.reportsFolder = REPORT_DIR; //write screenshot to allure with prettyName
     }
 
 
+    /**
+     * Allows to save additonal screenshot with nice mnemonical names
+     *
+     * @return screenshot file
+     */
     public byte[] saveScreenshotOnDiskAndReturn() {
         try {
             screenshot(name.getMethodName());
-            Path content = Paths.get("target" + System.getProperty("file.separator") + "allure-results", name.getMethodName() + ".png").toAbsolutePath();
+            Path content = Paths.get(REPORT_DIR, name.getMethodName() + ".png").toAbsolutePath();
             log.log(Level.INFO, "Screenshot being done for " + name.getMethodName());
             return Files.readAllBytes(content);
 

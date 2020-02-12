@@ -1,7 +1,5 @@
 package org.selenide.examples.config.pages.base;
 
-import com.codeborne.selenide.Selenide;
-
 public interface IBasePage {
     void setBaseUrl(String baseUrl);
 
@@ -12,5 +10,5 @@ public interface IBasePage {
     String getURL();
 
     void setURL(String url);
-    void open();
+    BasePage open();
 }

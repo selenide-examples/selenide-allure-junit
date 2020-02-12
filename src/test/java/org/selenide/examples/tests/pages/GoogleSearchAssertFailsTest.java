@@ -14,8 +14,7 @@ public class GoogleSearchAssertFailsTest extends BaseTests {
     @Test
     public void userCanSearchAnyKeywordThenResultsPageIsReturnedThenAssertFails() {
         final int EXPECTED_MINIMUM_SIZE = 9999;
-        googleSearchPage.open();
-        googleResultsPage = googleSearchPage.search("Uncommon phrase");
+        googleSearchPage.open().search("Uncommon phrase");
         googleResultsPage.getResults().shouldHave(sizeGreaterThan(EXPECTED_MINIMUM_SIZE));
     }
 }
