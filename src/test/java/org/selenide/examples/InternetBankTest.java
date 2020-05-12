@@ -4,14 +4,17 @@ import com.codeborne.pdftest.PDF;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.xlstest.XLS;
 import com.google.common.io.Files;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Attachment;
+import io.qameta.allure.Attachment;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,17 +26,20 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.FileDownloadMode.PROXY;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.close;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertThat;
 
 public class InternetBankTest {
+
   @BeforeClass
   public static void setUp() {
-    close();
+    closeWebDriver();
     Configuration.baseUrl = "https://idemo.bspb.ru";
     Configuration.proxyEnabled = true;
+    Configuration.proxyHost = "0.0.0.0";
     Configuration.fileDownload = PROXY;
+    SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
   }
 
   @Before
@@ -80,7 +86,7 @@ public class InternetBankTest {
     );
   }
 
-  @Test
+  @Test @Ignore
   public void userCanDownloadStatementAsPdf() throws IOException {
     openStatement();
     $("#statement-export").click();
@@ -94,7 +100,7 @@ public class InternetBankTest {
     assertThat(pdf, PDF.containsText("Statement Period:"));
   }
 
-  @Test
+  @Test @Ignore
   public void userCanDownloadStatementAsExcel() throws IOException {
     openStatement();
     $("#statement-export").click();

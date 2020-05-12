@@ -14,7 +14,7 @@
   <version>2.1</version>
   
   <properties>
-    <allure.version>1.5.4</allure.version>
+    <allure.version>2.13.3</allure.version>
     <aspectj.version>1.9.5</aspectj.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -24,8 +24,13 @@
 
   <dependencies>
     <dependency>
-      <groupId>ru.yandex.qatools.allure</groupId>
-      <artifactId>allure-junit-adaptor</artifactId>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit4</artifactId>
+      <version>${allure.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-selenide</artifactId>
       <version>${allure.version}</version>
     </dependency>
     <dependency>
@@ -81,9 +86,15 @@
           <properties>
             <property>
               <name>listener</name>
-              <value>ru.yandex.qatools.allure.junit.AllureRunListener</value>
+              <value>io.qameta.allure.junit4.AllureJunit4</value>
             </property>
           </properties>
+          <systemProperties>
+            <property>
+              <name>allure.results.directory</name>
+              <value>${project.build.directory}/allure-results</value>
+            </property>
+          </systemProperties>
         </configuration>
         <dependencies>
           <dependency>
@@ -98,21 +109,17 @@
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.4.28.v20200408</version>
         <configuration>
-          <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
+          <webAppSourceDirectory>${project.build.directory}/site</webAppSourceDirectory>
+          <supportedPackagings>
+            <supportedPackaging>jar</supportedPackaging>
+          </supportedPackagings>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.10.0</version>
       </plugin>
     </plugins>
   </build>
-
-  <reporting>
-    <excludeDefaults>true</excludeDefaults>
-    <plugins>
-      <plugin>
-        <groupId>ru.yandex.qatools.allure</groupId>
-        <artifactId>allure-maven-plugin</artifactId>
-        <version>2.6</version>
-      </plugin>
-    </plugins>
-  </reporting>
-
 </project>
