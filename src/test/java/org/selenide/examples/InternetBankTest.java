@@ -80,9 +80,9 @@ public class InternetBankTest {
     $(".statement-container .transaction-row.tx-debit .counterparty-name").scrollTo().click();
     $("#transaction-dialog #transaction-header").shouldHave(text("Transaction details"));
     $("#transaction-dialog #payment-beneficiary").shouldHave(text("Beneficiary"));
-    $("#transaction-dialog #beneficiary-account").shouldHave(
+    $("#transaction-dialog #payment-beneficiary-account").shouldHave(
         text("Beneficiary account"),
-        text("***** *** * **** ***0000")
+        text("66951 810 3 5154 3500000")
     );
   }
 
