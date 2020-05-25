@@ -36,12 +36,12 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.11.1</version>
+      <version>5.12.1</version>
     </dependency>
     <dependency>
       <groupId>com.browserup</groupId>
       <artifactId>browserup-proxy</artifactId>
-      <version>2.0.1</version>
+      <version>2.1.0</version>
       <type>zip</type>
     </dependency>
     <dependency>
@@ -107,7 +107,7 @@
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>9.4.28.v20200408</version>
+        <version>9.4.29.v20200521</version>
         <configuration>
           <webAppSourceDirectory>${project.build.directory}/site</webAppSourceDirectory>
           <supportedPackagings>
