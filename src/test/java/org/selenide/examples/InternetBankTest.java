@@ -30,6 +30,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertThat;
 
+@Ignore
 public class InternetBankTest {
 
   @BeforeClass
