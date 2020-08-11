@@ -99,10 +99,6 @@
               <name>allure.results.directory</name>
               <value>${project.build.directory}/allure-results</value>
             </property>
-            <property>
-              <name>selenide.headless</name>
-              <value>true</value>
-            </property>
           </systemProperties>
         </configuration>
         <dependencies>

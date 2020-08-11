@@ -5,4 +5,4 @@ addons:
     update: true
   chrome: stable
 
-script: "mvn clean test"
+script: "mvn clean test -Dselenide.headless=true"
