@@ -12,7 +12,7 @@
   <groupId>org.selenide.examples</groupId>
   <artifactId>selenide-allure-junit</artifactId>
   <version>2.2</version>
-  
+
   <properties>
     <allure.version>2.13.8</allure.version>
     <aspectj.version>1.9.6</aspectj.version>
@@ -36,7 +36,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.16.2</version>
+      <version>5.17.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
