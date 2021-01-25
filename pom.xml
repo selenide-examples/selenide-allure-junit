@@ -36,7 +36,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.17.4</version>
+      <version>5.18.0</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -57,7 +57,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>pdf-test</artifactId>
-      <version>1.5.2</version>
+      <version>1.6.0</version>
     </dependency>
     <dependency>
       <groupId>com.codeborne</groupId>
