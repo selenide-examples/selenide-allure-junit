@@ -8,13 +8,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class GoogleSearchTest {
+public class DuckSearchTest {
   @Rule
   public TextReport report = new TextReport();
 
@@ -25,9 +26,10 @@ public class GoogleSearchTest {
 
   @Test
   public void userCanSearchAnyKeyword() {
-    open("https://google.com/ncr");
+    open("https://duckduckgo.com/");
     $(By.name("q")).val("selenide").pressEnter();
-    $$("#res .g").shouldHave(sizeGreaterThan(5));
-    $("#res .g").shouldHave(text("selenide.org"));
+    $$(".js-results").shouldHave(size(1));
+    $$(".js-results .result").shouldHave(sizeGreaterThan(5));
+    $(".js-results .result").shouldHave(text("selenide.org"));
   }
 }
