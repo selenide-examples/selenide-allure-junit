@@ -15,7 +15,7 @@
 
   <properties>
     <allure.version>2.14.0</allure.version>
-    <aspectj.version>1.9.6</aspectj.version>
+    <aspectj.version>1.9.7</aspectj.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -36,12 +36,12 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.22.1</version>
+      <version>5.22.2</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>1.7.30</version>
+      <version>1.7.31</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -116,7 +116,7 @@
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>11.0.3</version>
+        <version>11.0.5</version>
         <configuration>
           <webAppSourceDirectory>${project.build.directory}/site</webAppSourceDirectory>
           <supportedPackagings>
