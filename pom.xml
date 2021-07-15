@@ -36,7 +36,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.22.2</version>
+      <version>5.22.3</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -65,6 +65,16 @@
       <version>1.4.3</version>
     </dependency>
   </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-compress</artifactId>
+        <version>1.21</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
     <defaultGoal>dependency:copy-dependencies</defaultGoal>
@@ -116,7 +126,7 @@
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>11.0.5</version>
+        <version>11.0.6</version>
         <configuration>
           <webAppSourceDirectory>${project.build.directory}/site</webAppSourceDirectory>
           <supportedPackagings>
