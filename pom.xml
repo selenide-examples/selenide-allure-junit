@@ -14,7 +14,7 @@
   <version>2.2</version>
 
   <properties>
-    <allure.version>2.14.0</allure.version>
+    <allure.version>2.15.0</allure.version>
     <aspectj.version>1.9.7</aspectj.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -36,12 +36,12 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.24.1</version>
+      <version>5.24.4</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>1.7.31</version>
+      <version>1.7.32</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
