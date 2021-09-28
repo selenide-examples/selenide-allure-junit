@@ -36,7 +36,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>5.24.4</version>
+      <version>5.25.0</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -46,7 +46,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>30.1.1-jre</version>
+      <version>31.0.1-jre</version>
     </dependency>
     <dependency>
       <groupId>com.browserup</groupId>
