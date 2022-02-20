@@ -36,7 +36,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide-junit4</artifactId>
-      <version>6.2.0</version>
+      <version>6.3.3</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
