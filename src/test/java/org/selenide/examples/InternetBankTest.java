@@ -7,14 +7,14 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.codeborne.xlstest.XLS;
 import com.google.common.io.Files;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.openqa.selenium.By;
 import io.qameta.allure.Attachment;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,12 +28,12 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-@Ignore
-public class InternetBankTest {
+@Disabled
+class InternetBankTest {
 
-  @BeforeClass
+  @BeforeAll
   public static void setUp() {
     closeWebDriver();
     Configuration.baseUrl = "https://idemo.bspb.ru";
@@ -43,7 +43,7 @@ public class InternetBankTest {
     SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
   }
 
-  @Before
+  @BeforeEach
   public void login() {
     open("/");
     $(By.name("username")).val("demo");
@@ -62,12 +62,12 @@ public class InternetBankTest {
   }
 
   @Test
-  public void userCanLoginToBspbDemo() {
+  void userCanLoginToBspbDemo() {
     $("#user-greeting").shouldHave(text("Hello World!"));
   }
 
   @Test
-  public void userCanLoadStatementForLastMonth() {
+  void userCanLoadStatementForLastMonth() {
     open("/bank/overview");
 
     $("#accounts .account a").click();
@@ -76,7 +76,7 @@ public class InternetBankTest {
   }
 
   @Test
-  public void userCanViewTransactionDetails() {
+  void userCanViewTransactionDetails() {
     openStatement();
     $(".statement-container .transaction-row.tx-debit .counterparty-name").scrollTo().click();
     $("#transaction-dialog #transaction-header").shouldHave(text("Transaction details"));
@@ -87,8 +87,8 @@ public class InternetBankTest {
     );
   }
 
-  @Test @Ignore
-  public void userCanDownloadStatementAsPdf() throws IOException {
+  @Test @Disabled
+  void userCanDownloadStatementAsPdf() throws IOException {
     openStatement();
     $("#statement-export").click();
 
@@ -101,8 +101,8 @@ public class InternetBankTest {
     assertThat(pdf, PDF.containsText("Statement Period:"));
   }
 
-  @Test @Ignore
-  public void userCanDownloadStatementAsExcel() throws IOException {
+  @Test @Disabled
+  void userCanDownloadStatementAsExcel() throws IOException {
     openStatement();
     $("#statement-export").click();
 
@@ -118,7 +118,7 @@ public class InternetBankTest {
   }
 
   @Test
-  public void userCanAssignAliasForAccount() {
+  void userCanAssignAliasForAccount() {
     open("/bank/overview");
     SelenideElement account = $("#accounts .account", 2).scrollTo();
 
@@ -140,7 +140,7 @@ public class InternetBankTest {
     $("#defined-periods").find(byText("Beginning of last month until today")).click();
   }
 
-  @After
+  @AfterEach
   public void tearDown() throws IOException {
     screenshot();
   }
