@@ -153,7 +153,8 @@
         <version>2.11.2</version>
         <configuration>
           <reportVersion>${allure.version}</reportVersion>
-        </configuration>
+          <servePort>8080</servePort>
+      </configuration>
       </plugin>
     </plugins>
   </build>
