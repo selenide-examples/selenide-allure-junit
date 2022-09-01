@@ -14,7 +14,7 @@
   <version>2.4</version>
 
   <properties>
-    <allure.version>2.18.1</allure.version>
+    <allure.version>2.19.0</allure.version>
     <aspectj.version>1.9.9.1</aspectj.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -27,37 +27,55 @@
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-junit5</artifactId>
       <version>${allure.version}</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-selenide</artifactId>
       <version>${allure.version}</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>6.7.0</version>
+      <version>6.7.3</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
-      <version>5.8.2</version>
+      <version>5.9.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.9.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.9.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>1.7.36</version>
+      <version>2.0.0</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>pdf-test</artifactId>
       <version>1.7.0</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>xls-test</artifactId>
       <version>1.5.0</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
