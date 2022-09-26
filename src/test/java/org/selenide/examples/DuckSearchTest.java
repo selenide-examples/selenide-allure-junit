@@ -28,7 +28,7 @@ class DuckSearchTest {
     open("https://duckduckgo.com/");
     $(By.name("q")).val("selenide").pressEnter();
     $$(".js-results").shouldHave(size(1));
-    $$(".js-results .result").shouldHave(sizeGreaterThan(5));
-    $(".js-results .result").shouldHave(text("selenide.org"));
+    $$(".js-results [data-testid=\"result\"]").shouldHave(sizeGreaterThan(5));
+    $(".js-results [data-testid=\"result\"]").shouldHave(text("selenide.org"));
   }
 }
