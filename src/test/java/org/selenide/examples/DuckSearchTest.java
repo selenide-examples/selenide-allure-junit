@@ -29,7 +29,7 @@ class DuckSearchTest {
   @ValueSource(strings = {"Selenide", "Codeborne", "Solntsev", "Tallinn"})
   void userCanSearchAnyKeyword(String query) {
     open("https://duckduckgo.com/");
-    $(By.name("q")).setValue(query).pressEnter();
+    $(By.name("q")).setValue(withText(query).sensitive()).pressEnter();
     $$(".js-results").shouldHave(size(1));
     $$(".js-results [data-testid=\"result\"]").shouldHave(sizeGreaterThan(5));
     $(".js-results [data-testid=\"result\"]").shouldHave(text(query));
