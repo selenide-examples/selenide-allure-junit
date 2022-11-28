@@ -14,13 +14,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
-      - uses: actions/cache@v2
+          cache: 'maven'
+      - name: Maven cache
+        uses: actions/cache@v3
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          path: ~/.m2
+          key: ${{ runner.os }}-maven
           restore-keys: |
-            ${{ runner.os }}-gradle-
+            ${{ runner.os }}-maven
       - name: Build
         run: mvn --batch-mode --update-snapshots clean test
