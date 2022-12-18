@@ -1,8 +1,0 @@
-language: java
-
-addons:
-  apt:
-    update: true
-  chrome: stable
-
-script: "mvn clean test -Dselenide.headless=true"

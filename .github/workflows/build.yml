@@ -26,3 +26,20 @@ jobs:
             ${{ runner.os }}-maven
       - name: Build
         run: mvn --batch-mode --update-snapshots clean test
+
+  auto-merge-dependabot:
+    name: 🤖 Auto merge dependabot PR
+    timeout-minutes: 10
+    needs: [compile-java-code]
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - name: 🤖 Merge PR from dependabot
+        uses: fastify/github-action-merge-dependabot@v3.5.3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          target: minor
+          merge-method: rebase
