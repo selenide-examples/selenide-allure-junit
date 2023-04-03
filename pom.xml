@@ -14,9 +14,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <name>Selenide + Allure + JUnit Example</name>
-  <description>Example usage of Selenide withAllure and JUnit</description>
-
   <dependencies>
     <dependency>
       <groupId>io.qameta.allure</groupId>
@@ -71,6 +68,18 @@
       <artifactId>xls-test</artifactId>
       <version>1.7.0</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.typesafe</groupId>
+      <artifactId>config</artifactId>
+      <version>1.4.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.26</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
