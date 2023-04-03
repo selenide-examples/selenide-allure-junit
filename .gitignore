@@ -5,4 +5,5 @@
 target
 build
 .allure
+.github
 allure-results
