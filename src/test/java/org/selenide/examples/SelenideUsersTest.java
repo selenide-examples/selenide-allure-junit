@@ -5,6 +5,7 @@ import com.codeborne.selenide.junit5.TextReportExtension;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -12,6 +13,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.sizeLessThan;
+import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.text;
@@ -28,6 +30,13 @@ class SelenideUsersTest {
   public void setUp() {
     SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     open();
+  }
+
+  @Test
+  void showsAllUsersCategories() {
+    open("https://selenide.org/users.html");
+    $$("#user-tags .tag").first(3)
+      .shouldHave(texts("usa", "ukraine", "europe"));
   }
 
   @ParameterizedTest(name = "#{index}. Let's search #{0}")
