@@ -75,7 +75,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>xls-test</artifactId>
-      <version>1.7.0</version>
+      <version>1.7.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
