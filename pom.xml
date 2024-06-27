@@ -16,7 +16,7 @@
   <properties>
     <allure.version>2.27.0</allure.version>
     <aspectj.version>1.9.22.1</aspectj.version>
-    <junit.version>5.10.2</junit.version>
+    <junit.version>5.10.3</junit.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
