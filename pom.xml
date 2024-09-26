@@ -69,7 +69,7 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>pdf-test</artifactId>
-      <version>1.9.0</version>
+      <version>1.9.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
