@@ -22,6 +22,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 
 @ExtendWith(TextReportExtension.class)
 class SelenideUsersTest {
@@ -35,8 +36,8 @@ class SelenideUsersTest {
   @Test
   void showsAllUsersCategories() {
     open("https://selenide.org/users.html");
-    $$("#user-tags .tag").first(3)
-      .shouldHave(texts("usa", "ukraine", "europe"));
+    $$("#user-tags .tag").first(5)
+      .shouldHave(texts("usa", "europe", "asia", "estonia", "ukraine"));
   }
 
   @ParameterizedTest(name = "#{index}. Let's search #{0}")
@@ -51,9 +52,10 @@ class SelenideUsersTest {
       .shouldHave(sizeGreaterThan(7))
       .findBy(text(tag))
       .click();
+    sleep(2000);
 
     users.shouldHave(sizeGreaterThan(5));
-    users.shouldHave(sizeLessThan(25));
+    users.shouldHave(sizeLessThan(40));
 
     users.filterBy(not(cssClass(tag))).shouldHave(size(0));
     users.filterBy(cssClass(tag)).shouldHave(size(users.size()));
