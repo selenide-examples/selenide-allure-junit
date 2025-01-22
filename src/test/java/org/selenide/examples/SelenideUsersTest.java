@@ -10,6 +10,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.sizeLessThan;
@@ -17,12 +19,10 @@ import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 
 @ExtendWith(TextReportExtension.class)
 class SelenideUsersTest {
@@ -40,24 +40,24 @@ class SelenideUsersTest {
       .shouldHave(texts("usa", "europe", "asia", "estonia", "ukraine"));
   }
 
-  @ParameterizedTest(name = "#{index}. Let's search #{0}")
+  @ParameterizedTest(name = "#{index}. Let's search [{argumentsWithNames}]")
   @ValueSource(strings = {"usa", "ukraine", "europe", "estonia"})
   void userCanSearchAnyKeyword(String tag) {
     open("https://selenide.org");
     $(".main-menu-pages").find(byText("Users")).click();
-    ElementsCollection users = $$("#selenide-users .user").filter(visible);
+    ElementsCollection users = $$("#selenide-users .user:not(.hidden)");
+    users.shouldHave(size(1));
+    $("#user-tags .reset-filter").shouldHave(text("all")).click();
     users.shouldHave(sizeGreaterThan(50));
 
     $$("#user-tags .tag")
       .shouldHave(sizeGreaterThan(7))
       .findBy(text(tag))
       .click();
-    sleep(2000);
 
-    users.shouldHave(sizeGreaterThan(5));
-    users.shouldHave(sizeLessThan(40));
-
+    users.shouldHave(size($$("#selenide-users ." + tag).size()), Duration.ofSeconds(10));
     users.filterBy(not(cssClass(tag))).shouldHave(size(0));
-    users.filterBy(cssClass(tag)).shouldHave(size(users.size()));
+    users.shouldHave(sizeGreaterThan(5));
+    users.shouldHave(sizeLessThan(50));
   }
 }
