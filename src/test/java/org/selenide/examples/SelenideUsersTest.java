@@ -48,7 +48,7 @@ class SelenideUsersTest {
     ElementsCollection users = $$("#selenide-users .user:not(.hidden)");
     users.shouldHave(size(1));
     $("#user-tags .reset-filter").shouldHave(text("all")).click();
-    users.shouldHave(sizeGreaterThan(50));
+    users.shouldHave(sizeGreaterThan(165));
 
     $$("#user-tags .tag")
       .shouldHave(sizeGreaterThan(7))
@@ -58,6 +58,6 @@ class SelenideUsersTest {
     users.shouldHave(size($$("#selenide-users ." + tag).size()), Duration.ofSeconds(10));
     users.filterBy(not(cssClass(tag))).shouldHave(size(0));
     users.shouldHave(sizeGreaterThan(5));
-    users.shouldHave(sizeLessThan(50));
+    users.shouldHave(sizeLessThan(100));
   }
 }
