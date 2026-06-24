@@ -167,7 +167,7 @@
       <plugin>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>
-        <version>3.0.1</version>
+        <version>3.0.2</version>
         <configuration>
           <reportVersion>${allure.version}</reportVersion>
         </configuration>
